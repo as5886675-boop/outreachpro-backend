@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": Bearer ${groqKey}`
+        "Authorization": "Bearer" + groqKey
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
