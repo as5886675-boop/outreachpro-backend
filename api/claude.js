@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     );
 
     const data = await r.json();
-    if (!r.ok) return res.status(500).json({ error: data.error?.message || "Gemini error" });
+    if (!r.ok) return res.status(500).json({ error: data.error?.message });
 
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
     return res.status(200).json({ content: [{ type: "text", text }] });
