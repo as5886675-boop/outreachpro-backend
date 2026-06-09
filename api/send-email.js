@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     const emailRes = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        Authorization: Bearer ${resend_api_key},
+        Authorization: `Bearer ${resend_api_key},`
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         to: to_email,
         subject,
         text: body,
-        html: <div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.7;max-width:600px;color:#333;">${body.replace(/\n/g, "<br/>")}</div>,
+        html: `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.7;max-width:600px;color:#333;">${body.replace(/\n/g, "<br/>")}</div>,`
       }),
     });
 
